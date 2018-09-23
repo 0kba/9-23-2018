@@ -16,3 +16,7 @@ for num in numbers:
 print (f"number 4 appeared {count} times.")
 
 
+result______________________________________________________________
+number 2 appeared 4 times.
+number 3 appeared 6 times.
+number 4 appeared 10 times.
