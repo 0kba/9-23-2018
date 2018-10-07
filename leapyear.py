@@ -12,8 +12,8 @@ def leapyear (num):
 
     leap = f"{num} is a leap year."
     notleap = f"{num} isn't a leap year."
-    while num %4 == 0 :
-        while num % 100 == 0 :
+    if num %4 == 0 :
+        if num % 100 == 0 :
 
             if num % 400 == 0 :
                 return leap
