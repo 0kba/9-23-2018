@@ -1,6 +1,6 @@
 testCase1 = "test string is a test"
 testCase2 = "wood  is  from  nature and nature is wood  "
-testCase3 = "test string is a test"
+testCase3 = "word words  so so"
 testCase4 = "test string is a test"
 
 
