@@ -1,7 +1,7 @@
 testCase1 = "test string is a test"
 testCase2 = "wood  is  from  nature and nature is wood  "
 testCase3 = "word words  so so"
-testCase4 = "alot of spaces    and spaces "
+testCase4 = "a lot of spaces    and spaces "
 
 
 def getwords(sentence):
@@ -53,4 +53,11 @@ print(result)
 result = getuniquewords(testCase4)
 print(result)
 
+
+# ______________________________________________________________
+# result
+# test string is a
+#  wood is from nature and
+#  word words so
+#  a lot of spaces and
 
