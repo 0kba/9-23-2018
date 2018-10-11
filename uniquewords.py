@@ -1,7 +1,7 @@
 testCase1 = "test string is a test"
 testCase2 = "wood  is  from  nature and nature is wood  "
 testCase3 = "word words  so so"
-testCase4 = "test string is a test"
+testCase4 = "alot of spaces    and spaces "
 
 
 def getwords(sentence):
@@ -20,11 +20,25 @@ def getwords(sentence):
 def getuniquewords(sentence):
     words = getwords(sentence)
     uniquewords = []
+    finalwords = []
     for word in words:
         if word in uniquewords:
             continue
-        uniquewords.append(word)
-    return uniquewords
+        else:
+            uniquewords.append(word)
+    for w in uniquewords:
+        if w != '':
+            finalwords.append(w)
+        else: continue
+
+    current = ""
+    for a in finalwords:
+        if a != 0:
+            current = current + " " + a
+        else: current = a
+
+    return current
+
 
 
 result = getuniquewords(testCase1)
