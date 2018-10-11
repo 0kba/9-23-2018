@@ -20,7 +20,7 @@ def getwords(sentence):
 def getuniquewords(sentence):
     words = getwords(sentence)
     uniquewords = []
-    finalwords = []
+    finallistofwords = []
     for word in words:
         if word in uniquewords:
             continue
@@ -28,16 +28,16 @@ def getuniquewords(sentence):
             uniquewords.append(word)
     for w in uniquewords:
         if w != '':
-            finalwords.append(w)
+            finallistofwords.append(w)
         else: continue
 
-    current = ""
-    for a in finalwords:
+    finalstringwords = ""
+    for a in finallistofwords:
         if a != 0:
-            current = current + " " + a
-        else: current = a
+            finalstringwords = finalstringwords + " " + a
+        else: finalstringwords = a
 
-    return current
+    return finalstringwords
 
 
 
