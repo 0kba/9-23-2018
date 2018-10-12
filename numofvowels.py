@@ -1,11 +1,12 @@
 
 string = input("please write a statment")
+string2 = string.lower()
 
 
 vowels = {"a" : 0 , "e" : 0 , "i" : 0 ,  "o" : 0 , "u" : 0}
 vowelslist = []
 
-for char in string:
+for char in string2:
     if char in vowels:
         vowelslist.append(char)  # putting all the vowels in a list
 
