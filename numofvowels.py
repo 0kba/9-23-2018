@@ -31,7 +31,7 @@ for vo in vowels:
 # results
 #  ______________________________________________________
 # please write a statment this is a test
-# The text: 'this is a test' has an even number of vowels
+# The text: 'thIs Is A test' has an even number of vowels
 # a 1
 # e 1
 # i 2
