@@ -12,11 +12,11 @@ def combineinfinitelists (listofinfinitelists):
 # ( the benefit that now we have it just a list not a list inside a list inside a list and
 # it will go all the way to the end of our list which means we will iterate over it again later in our loop)
 
-                else: combinedlist.append(list)  # it means it is ready add it to our result list
+                else: combinedlist.append(list)  #  it means it is ready add it to our result list
 
-        else: combinedlist.append(listornum)    # it means it is ready add it to our result list
+        else: combinedlist.append(listornum)    #  it means it is ready add it to our result list
 
-    return combinedlist   # return our result list
+    return combinedlist     # return our result list
 
 
 
