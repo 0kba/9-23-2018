@@ -1,5 +1,0 @@
-EmployeeId,FirstName,LastName,Salary
-1,Abdo,Ali,59533.54
-2,Leeema,Ali,509533.54
-3,mohamed,hasan,8376483
-4,ahmed,ibrahim,9839.4
