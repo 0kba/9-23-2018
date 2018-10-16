@@ -39,3 +39,24 @@ def writefromafile(filename):
 
 
 writefromafile("employee-info.txt")
+
+# ______________________________________________________
+#   test results
+#
+#
+# if writefromafile("employee-info.txt")
+#     result
+# {'EmployeeId': '1', 'FullName': 'Ali, Abdo', 'Salary': '$59533.54'}
+# {'EmployeeId': '2', 'FullName': 'Ali, Leeema', 'Salary': '$509533.54'}
+# {'EmployeeId': '3', 'FullName': 'hasan, mohamed', 'Salary': '$8376483'}
+# {'EmployeeId': '4', 'FullName': 'ibrahim, ahmed', 'Salary': '$9839.4'}
+#
+#
+# if writefromafile("jkfdjfhdk.txt")
+# result
+# Oops!  either you entered a wrong file name or the file doesn't exist.  Try again...
+
+
+# if we tray an empty file
+#     result
+# your file is empty.
