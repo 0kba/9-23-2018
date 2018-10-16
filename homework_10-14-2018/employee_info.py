@@ -23,7 +23,7 @@ def writefromafile(filename):
         if list == ['']:
             print("your file is empty.")   # if list didn't capture anything that means the file is empty
 
-        while len(list) >= 4:  # once we have less than 4 items that means we are done
+        while len(list) >= 4 :  # once we have less than 4 items that means we are done
 
             result = {"EmployeeId": list[0], "FullName": f"{list[2]}, {list[1]}", "Salary": f"${list[3]}"}
             # we created a dictionary to capture every item in where it should be
@@ -34,11 +34,12 @@ def writefromafile(filename):
 
     except OSError:
 
-        print("Oops!  either you entered a wrong file name or the file doesn't exist.  Try again...")
+        print("Oops!  the file doesn't exist.  please try again...")
 
 
 
 writefromafile("employee-info.txt")
+writefromafile("jkfdjfhdk.txt")
 
 # ______________________________________________________
 #   test results
