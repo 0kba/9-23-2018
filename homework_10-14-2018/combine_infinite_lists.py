@@ -1,27 +1,31 @@
 
-def combine_infinite_lists (list_of_infinite_lists):
+def combine_infinite_lists (main_list):
 
-    combined_list = []
+    result_list = []
 
-    for item in list_of_infinite_lists:
+    for item in main_list:
 
-        if type(combined_list) == type(item):                 # if it is a list go to the next line
+        if type(result_list) == type(item):                 # if it is a list go to the next line
 
-            for list in item:                                 # iterate over that particular list
+            peel(result_list, item, main_list)
 
-                if type(combined_list) == type(list):
-                    list_of_infinite_lists.append(list)              # if it is a list take it and add it to our main list
+        else: result_list.append(item)
 
-                else: combined_list.append(list)
-
-        else: combined_list.append(item)
-
-    return combined_list
+    return result_list
 
 
+def peel(result_list, item, main_list):
+    for list in item:  # iterate over that particular list
 
-list_of_infinite_lists = [[[[[[[1,7]]],[[[[[[2,3]]]]]]]]]]
-printable_list =combine_infinite_lists(list_of_infinite_lists)
+        if type(result_list) == type(list):
+            main_list.append(list)  # if it is a list take it and add it to our main list
+
+        else:
+            result_list.append(list)
+
+
+main_list = [[[[[[[1,7]]],[[[[[[2,3]]]]]]]]]]
+printable_list =combine_infinite_lists(main_list)
 
 
 

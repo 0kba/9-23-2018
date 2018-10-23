@@ -8,48 +8,56 @@ def reading_file_to_a_list(filename):
         item = ""
 
         for lines in file:                        # iterate over all the lines
-
-            for char in lines:                    # iterate over each character in the line
-
-                if char == "," or char == "\n":   # if you found "," or "\n"(end of the line)
-                    list.append(item)             # append the variable item to the list
-                    item = ""                     # then reset it to empty
-                else:
-                    item = item + char            # add every character in the variable "item"
+            item = divide_lines_to_words(item, lines, list)
 
         list.append(item)                         # now we have all items in the file in a list
         return list
 
     except OSError:
-        return "Oops! the source file doesn't exist.  please try again..."
+        return "Oops! the source file doesn't exist.  please try again..."           # handling error if the file doesn't exist
 
-# ____________________________________________________________________________________
 
-def sorting_list_to_dictionary (list):
+def divide_lines_to_words(item, lines, list):
+    for char in lines:  # iterate over each character in the line
 
+        if char == "," or char == "\n":  # if you found "," or "\n"(end of the line)
+            list.append(item)  # append the variable item to the list
+            item = ""  # then reset it to empty
+        else:
+            item = item + char  # add every character in the variable "item"
+    return item
+
+def fill_list_to_dic(list):
+    while len(list) >= 4:
+        result = {"Employee Id": list[0], "Full Name": f"{list[2]}, {list[1]}", "Salary": f"${list[3]}"}
+        # we created a dictionary to capture every item in where it should be
+
+        print(result)
+
+        del list[0:4]  # delete the first 4 items so we can move to the next line
+
+
+def handling_source_error (list):
 
     if list == "Oops! the source file doesn't exist.  please try again...":
         print("Oops! the source file doesn't exist.  please try again...")
 
     elif list != ['']:
-        while len(list) >= 4:
-
-            result = {"Employee Id": list[0], "Full Name": f"{list[2]}, {list[1]}", "Salary": f"${list[3]}"}
-            # we created a dictionary to capture every item in where it should be
-
-            print(result)
-
-            del list[0:4]  # delete the first 4 items so we can move to the next line
+        fill_list_to_dic(list)
 
 
     elif list == ['']:
         print("the source file is empty")
 
+
+
+
+
 # __________________________________________________________________________________
 
 list = reading_file_to_a_list("employee-info.txt")
 
-result = sorting_list_to_dictionary(list)
+result = handling_source_error(list)
 
 print(result)
 
