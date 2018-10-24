@@ -4,6 +4,7 @@ def positive_place_value(num):
     place_value = 1
     zero = ''
     for digit in reversed(num):
+
         print(f"place value ({place_value}) is : '{digit+zero}'")
         zero += '0'                              # zero variable is adding one more 0 to each digit
         place_value *= 10
@@ -42,6 +43,22 @@ def __main__():
 
 
 __main__()
+
+#___________________________________________________________________
+# test cases results
+# str_of_num_place_value.py 987
+# place value (1) is : '7'
+# place value (10) is : '80'
+# place value (100) is : '900'
+
+# -987
+# place value (1) is : '-7'
+# place value (10) is : '-80'
+# place value (100) is : '-900'
+
+# str_of_num_place_value.py lkj
+# lkj is not a number.
+
 
 
 

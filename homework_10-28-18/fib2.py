@@ -44,6 +44,14 @@ def exec_fib(userInput):
 __main__()
 
 
+# ________________________________________________________________________
+# test cases result
+# The fibonacci value for 8 is 21
+# The fibonacci value for 98 is 135301852344706746049
+# -8   fibonacci can't be minus please try again...
+# kljh is not a number.
+
+
 
 
 
