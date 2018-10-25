@@ -30,10 +30,6 @@ def __main__():
         print(f"{userInput} is not a valid entry", file=sys.stderr)
         return
 
-    except RecursionError:
-        print(f"{userInput} is a lot of numbers please try less numbers", file=sys.stderr)
-        return
-
 
 def exec_fib(userInput):
     number = int(userInput)
