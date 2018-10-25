@@ -36,16 +36,17 @@ def exec_fib(userInput):
     fib_value = fib2(number)
     print(f"The fibonacci value for {number} is {fib_value}", file=sys.stdout)
 
-
-__main__()
-
-
 # ________________________________________________________________________
 # test cases result
 # The fibonacci value for 8 is 21
 # The fibonacci value for 98 is 135301852344706746049
 # -8   fibonacci can't be minus please try again...
 # kljh is not a number.
+
+__main__()
+
+
+
 
 
 
