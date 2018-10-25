@@ -37,14 +37,6 @@ def __main__():
         print(f"{userInput} is not a valid entry", file=sys.stderr)
         return
 
-    except RecursionError:
-        print(f"{userInput} is a lot of numbers please try less numbers", file=sys.stderr)
-        return
-
-
-
-__main__()
-
 #___________________________________________________________________
 # test cases results
 # str_of_num_place_value.py 987
@@ -59,6 +51,12 @@ __main__()
 
 # str_of_num_place_value.py lkj
 # lkj is not a number.
+
+
+
+__main__()
+
+
 
 
 
