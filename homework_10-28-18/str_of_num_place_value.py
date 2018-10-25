@@ -48,14 +48,14 @@ __main__()
 #___________________________________________________________________
 # test cases results
 # str_of_num_place_value.py 987
-# place value (1) is : '7'
-# place value (10) is : '80'
-# place value (100) is : '900'
+# place value (1) is : 7
+# place value (10) is : 80
+# place value (100) is : 900
 
 # -987
-# place value (1) is : '-7'
-# place value (10) is : '-80'
-# place value (100) is : '-900'
+# place value (1) is : -7
+# place value (10) is : -80
+# place value (100) is : -900
 
 # str_of_num_place_value.py lkj
 # lkj is not a number.
