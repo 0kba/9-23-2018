@@ -4,7 +4,7 @@ def fib2(num):
     list = []
     first_fib = 1                           # first two fibonacci numbers
     second_fib = 1
-    for i in range(num):
+    while num > len(list):
         list.append(first_fib)             # **1**
         temp = first_fib                   # storing old first to a temporary variable so we can change the value without loosing it
         first_fib = second_fib             # the new first = the old second so we can move forward in the list (getting ready for next loop)
