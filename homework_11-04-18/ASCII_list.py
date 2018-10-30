@@ -12,7 +12,7 @@ def decimal_to_hex_numbers_only (decimal) :      # (1) function does the hex equ
     return sum_of_list(remainder_list)
 
 
-def sum_of_list(remainder_list):             # (2) function to take care of this list by adding all numbers inside the list together
+def sum_of_list(remainder_list):             # (2) function adding all numbers inside the list together
     hex = 0
     for num in remainder_list:
         hex = num + hex
@@ -46,6 +46,21 @@ def decimal_to_hex (decimal):                # (4) main function (for hex proble
 for char in range(128):                     # (5) print the ASCII table and using the decimal to hex function to produce hex in the table
     print(f"Decimal ({char}) is hex {decimal_to_hex(char)} and Keyboard Entry is ({chr(char)}) ")
 
+# __________________TEST CASES RESULTS______________________________________
+# Decimal (0) is hex 0 and Keyboard Entry is ( )
+# Decimal (1) is hex 1 and Keyboard Entry is ()
+# Decimal (2) is hex 2 and Keyboard Entry is ()
+# Decimal (3) is hex 3 and Keyboard Entry is ()
+# Decimal (4) is hex 4 and Keyboard Entry is ()
+# .etc
+# Decimal (120) is hex 78 and Keyboard Entry is (x)
+# Decimal (121) is hex 79 and Keyboard Entry is (y)
+# Decimal (122) is hex 7A and Keyboard Entry is (z)
+# Decimal (123) is hex 7B and Keyboard Entry is ({)
+# Decimal (124) is hex 7C and Keyboard Entry is (|)
+# Decimal (125) is hex 7D and Keyboard Entry is (})
+# Decimal (126) is hex 7E and Keyboard Entry is (~)
+# Decimal (127) is hex 7F and Keyboard Entry is ()
 
 
 
