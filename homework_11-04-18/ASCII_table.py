@@ -10,21 +10,21 @@ def decimal_to_hex_decimal (decimal):
 
 
 for char in range(128):                     # print the ASCII table and using the decimal to hexdecimal function to produce hex in the table
-    print(f"Decimal ({char}) is hex {decimal_to_hex_decimal(char)} and Keyboard Entry is ({chr(char)}) ")
+    print(f"Decimal: ({char})    hex: ({decimal_to_hex_decimal(char)})     Keyboard Entry: ({chr(char)}) ")
 
 
 # __________________TEST CASES RESULTS______________________________________
-# Decimal (0) is hex 00 and Keyboard Entry is ( )
-# Decimal (1) is hex 01 and Keyboard Entry is ()
-# Decimal (2) is hex 02 and Keyboard Entry is ()
-# Decimal (3) is hex 03 and Keyboard Entry is ()
-# Decimal (4) is hex 04 and Keyboard Entry is ()
+# Decimal: (0)    hex: (00)     Keyboard Entry: ( )
+# Decimal: (1)    hex: (01)     Keyboard Entry: ()
+# Decimal: (2)    hex: (02)     Keyboard Entry: ()
+# Decimal: (3)    hex: (03)     Keyboard Entry: ()
+# Decimal: (4)    hex: (04)     Keyboard Entry: ()
 # .etc
-# Decimal (120) is hex 78 and Keyboard Entry is (x)
-# Decimal (121) is hex 79 and Keyboard Entry is (y)
-# Decimal (122) is hex 7A and Keyboard Entry is (z)
-# Decimal (123) is hex 7B and Keyboard Entry is ({)
-# Decimal (124) is hex 7C and Keyboard Entry is (|)
-# Decimal (125) is hex 7D and Keyboard Entry is (})
-# Decimal (126) is hex 7E and Keyboard Entry is (~)
-# Decimal (127) is hex 7F and Keyboard Entry is ()
+# Decimal: (120)    hex: (78)     Keyboard Entry: (x)
+# Decimal: (121)    hex: (79)     Keyboard Entry: (y)
+# Decimal: (122)    hex: (7A)     Keyboard Entry: (z)
+# Decimal: (123)    hex: (7B)     Keyboard Entry: ({)
+# Decimal: (124)    hex: (7C)     Keyboard Entry: (|)
+# Decimal: (125)    hex: (7D)     Keyboard Entry: (})
+# Decimal: (126)    hex: (7E)     Keyboard Entry: (~)
+# Decimal: (127)    hex: (7F)     Keyboard Entry: ()
