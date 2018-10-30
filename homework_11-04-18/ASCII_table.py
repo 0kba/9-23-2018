@@ -1,7 +1,7 @@
 def decimal_to_hex_decimal (decimal):
-    letters = {"0": 0,"1": 0.0625,"2":0.125,"3":0.1875,"4":0.25,"5": 0.3125,
-               "6": 0.375,"7":0.4375,"8": 0.5,"9":0.5625,"A": 0.625, "B": 0.6875,
-               "C": 0.75, "D": 0.8125, "E": 0.875, "F": 0.9375}                     # dividing decimal by 16 gives us
+    letters = {"0": 0 , "1": 0.0625 , "2": 0.125 , "3": 0.1875 , "4": 0.25 , "5": 0.3125 ,
+               "6": 0.375 , "7": 0.4375 , "8": 0.5 , "9": 0.5625 , "A": 0.625 , "B": 0.6875 ,
+               "C": 0.75 , "D": 0.8125 , "E": 0.875 , "F": 0.9375}                     # dividing decimal by 16 gives us
                                                      # integer number ( the first number) and decimal number ( the value in the dictionary we created )
                                                      # which will tell us which number or letter should we use.
     for key, value in letters.items():
