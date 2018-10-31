@@ -13,7 +13,13 @@ def fib2(num):
     return (list[num - 1])
 
 
-def __main__():
+def exec_fib(userInput):
+    number = int(userInput)
+    fib_value = fib2(number)
+    print(f"The fibonacci value for {number} is {fib_value}", file=sys.stdout)
+
+
+def main():
     if len(sys.argv) < 2:
         print("Pass a number to this program to get the fibonacci value.")
         return
@@ -31,11 +37,6 @@ def __main__():
         return
 
 
-def exec_fib(userInput):
-    number = int(userInput)
-    fib_value = fib2(number)
-    print(f"The fibonacci value for {number} is {fib_value}", file=sys.stdout)
-
 # ________________________________________________________________________
 # test cases result
 # The fibonacci value for 8 is 21
@@ -43,8 +44,8 @@ def exec_fib(userInput):
 # -8   fibonacci can't be minus please try again...
 # kljh is not a number.
 
-__main__()
-
+if __name__ == '__main__':
+    main()
 
 
 

@@ -1,23 +1,23 @@
 import sys
 
 
-def positive_place_value(num):
-    str_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']               # every index in this list number of string is equal to the position in the list
+def convert_str_to_int(num):
+    str_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']  # every index in this list number of string is equal to the position in the list
     place_value = 1
+    final_int = 0
+    sign = 1
+    if num[0] == "-":
+        sign = -1
+        num = num[1:]
     for digit in reversed(num):
         if digit in str_list:
-            print(f"place value ({place_value}) is : {str_list.index(digit)*place_value}")   #  instead of writting the digit or the number as a string
-            place_value *= 10                                                                # we will write the position of it in the list which will be int type
-
-
-def minus_place_value(num):
-    str_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    place_value = 1
-
-    for digit in reversed(num):
-        if digit != "-" and digit in str_list:                                                   # if the first digit is - that means number is minus
-            print(f"place value ({place_value}) is : -{str_list.index(digit)*place_value}")     # add a minus before every digit
+            final_int += str_list.index(digit)*place_value
             place_value *= 10
+        else:
+            raise ValueError("{} is not a valid digit.".format(digit))
+
+    return  final_int * sign
+
 
 
 def __main__():
@@ -26,15 +26,15 @@ def __main__():
         return
     try:
         userInput = str(sys.argv[1])
-        if userInput.isnumeric():
-            positive_place_value(userInput)
-        elif userInput[0] == "-":
-            minus_place_value(userInput)
+        if userInput is not None:
+            final = convert_str_to_int(userInput)
+            print(final, file=sys.stdout)
+            # print(type(final))
         else:
             print(f"{userInput} is not a number.", file=sys.stderr)
 
     except ValueError:
-        print(f"{userInput} is not a valid entry", file=sys.stderr)
+        print("an exception occurred", file=sys.stderr)
         return
 
 #___________________________________________________________________

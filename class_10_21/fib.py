@@ -36,7 +36,7 @@ def __main__():
 def exec_fib(userInput):
     number = int(userInput)
     fib_value = fib(number)
-    print(f"The fibonacci value for {number} is {fib_value}")
+    print(f"The fibonacci value for {number} is {fib_value}", file=sys.stdout)
 
 
 __main__()
