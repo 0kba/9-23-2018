@@ -7,10 +7,10 @@ def decimal_to_hex_decimal (decimal):
                                                      # which will tell us which number or letter should we use.
     for key, value in letters.items():
         if (decimal / 16) - int(decimal / 16) == value:
-            return f"{int(decimal / 16)}{key}"
+            return f"{hex(int(decimal / 16))}{key}"
 
 
-for char in range(128):                     # print the ASCII table and using the decimal to hexdecimal function to produce hex in the table
+for char in range(401):                     # print the ASCII table and using the decimal to hexdecimal function to produce hex in the table
     print(f"Decimal: ({char})    hex: ({decimal_to_hex_decimal(char)})     Keyboard Entry: ({chr(char)}) ")
 
 
