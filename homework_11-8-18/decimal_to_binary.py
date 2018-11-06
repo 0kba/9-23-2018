@@ -1,11 +1,9 @@
-number = 893
+number = 209
 def decimal_to_binary(number):
     list_of_two_xx_decimal = []
     number_index = make_list_get_index(list_of_two_xx_decimal, number)
     list_of_two_xx_decimal = list_of_two_xx_decimal[:(number_index + 1)]
     produce_binary_from_list(list_of_two_xx_decimal, number)
-
-
 
 def make_list_get_index(list_of_two_xx_decimal, number):
     breaking_compare = 0
@@ -17,7 +15,7 @@ def make_list_get_index(list_of_two_xx_decimal, number):
         if number in list_of_two_xx_decimal:
             number_index = list_of_two_xx_decimal.index(number)
             break
-        elif breaking_compare > number * number:
+        elif breaking_compare > (number * number):
             number_index = get_closest_index(list_of_two_xx_decimal, number, number_index)
     return number_index
 
@@ -30,24 +28,28 @@ def get_closest_index(list_of_two_xx_decimal, number, number_index):
             break
     return number_index
 
-def two_xx_to_binary(index_of_instance_number, list_of_two_xx_decimal, matching_number, number, result, two_xx_):
-    if two_xx_ == number:
-        matching_number = number
-        result = '1' + result
-    elif number != matching_number and (
-            matching_number + list_of_two_xx_decimal[index_of_instance_number]) <= number and two_xx_ < number:
-        matching_number = matching_number + two_xx_
-        result = '1' + result
-    else:
-        result = '0' + result
+
 
 def produce_binary_from_list(list_of_two_xx_decimal, number):
+    matching_number = 0
+    result = ''
     for two_xx_ in reversed(list_of_two_xx_decimal):
-        matching_number = 0
-        result = ''
         index_of_instance_number = list_of_two_xx_decimal.index(two_xx_)
-        two_xx_to_binary(index_of_instance_number, list_of_two_xx_decimal, matching_number, number, result, two_xx_)
+        if two_xx_ == number:
+            matching_number = number
+            result = '1' + result
+        elif number != matching_number and (
+                matching_number + list_of_two_xx_decimal[index_of_instance_number]) <= number and two_xx_ < number:
+            matching_number = matching_number + two_xx_
+            result = '1' + result
+        else:
+            result = '0' + result
     print(f"the binary of {number} is 0b{result[::-1]} = {bin(number)}")
 
-
 print(decimal_to_binary(number))
+
+# _________________________________________________results________________________________
+# the binary of 893 is 0b1101111101 = 0b1101111101
+# the binary of 8 is 0b1000 = 0b1000
+# the binary of 23 is 0b10111 = 0b10111
+# the binary of 209 is 0b11010001 = 0b11010001
