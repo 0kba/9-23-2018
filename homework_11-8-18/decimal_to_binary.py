@@ -29,7 +29,6 @@ def get_closest_index(list_of_two_xx_decimal, number, number_index):
     return number_index
 
 
-
 def produce_binary_from_list(list_of_two_xx_decimal, number):
     matching_number = 0
     result = ''
