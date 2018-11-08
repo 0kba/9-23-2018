@@ -1,0 +1,23 @@
+SCOPES
+
+
+A:- (LEGB) python four scopes are :- 1- built in scopes     2-      Global   scopes    3- enclosing function locals    4- local      function
+
+B:-  1- comperhension variables are local to the expression       itself.  2- exception variables are local to the except block.
+      You can import built in scopes and use dirto look up the       commands you will see in builtins module that the first half       built in exception but second are built in functions.
+
+C:-  If you used built in function as a name of a variable u       cannot use this function again inside the same scope             programe will think it is the variable u created.
+      Try not to use global whenever you can that makes the             code easier to read and understand and reuse.
+
+D:-  U can use a global scope in another file by importing the        file which contain that variable into your file first then use       it as u use modules module.global_variable. Same applied       to global functions.
+
+E:-  The programe search for the variable first inside the same       scope (function) then it goes to the next layer which is the       function that contains the first function and so on until it       reach  the global variable.
+
+F:-  Factory functions means returning a nested function inside       the main function that way when we call the main function       it will call and return the nested function without calling       each one separately.and if you have a paramater for each       (main and nested functions) you can call the function like       that main_function(paramater for main function)      (paramater for nested function). Also you can assgin your       main function with a spacific paramter to a variable or       difrrent variables then use it with deffrient paramaters for       the nested function.or you can just use lmbda as a       shortcut for this process by removing the nested function       and returning lmbda (nested function paramter): here             write the action u need the nested function to do.
+G:-  Try not to use nexted functions as much you can to make        your code simple in pythonic view.
+
+H:-  When you use lmbda for nested scopes specially if there is        loops try to use the default to result the variable to its        current value like (lmbda x, v=v : v*x) beacause if you        didn't  V will hold the last value from the last ittration or        loop.(very important in future when u use GUI)
+
+I:-  you can use (nonlocal) if you must change the variable to      let your function knows that it shouldn't use the local      variable and insteade use the on in the enclosing function      (doesn't mean use the global one) also you want to make     sure that you have a variable in the enclosing function     otherwise you will get an error.
+
+J:-  You can use (nested_function.state) or (state[0]) feature if       you have a variable will be changed instead of using       nonlocal.
