@@ -8,11 +8,11 @@ B:-  1- comprehension variables are local to the expression itself.  2- exceptio
       half built in exception but second are built in functions.
 
 C:-  If you used built in function as a name of a variable you cannot use this function again inside the same scope         
-     the program will think it is the variable u created.
+     the program will think it is the variable you created.
       Try not to use global whenever you can that makes the code easier to read and understand and reuse.
 
-D:-  U can use a global scope in another file by importing the file which contain that variable into your file first then use  
-     it as u use modules module.global_variable. Same applied to global functions.
+D:-  You can use a global scope in another file by importing the file which contain that variable into your file first then use  
+     it as you use modules module.global_variable. Same applied to global functions.
 
 E:-  The program search for the variable first inside the same scope (function) then it goes to the next layer which is the     
      function that contains the first function and so on until it reach  the global variable.
@@ -23,7 +23,7 @@ F:-  Factory functions means returning a nested function inside the main functio
       (parameter for nested function). Also you can assign your main function with a specific parameter to a variable or    
       different variables then use it with different parameters for the nested function.or you can just use lmbda as a    
       shortcut for this process by removing the nested function and returning lmbda (nested function parameter): here       
-      write the action u need the nested function to do.
+      write the action you need the nested function to do.
       
 G:-  Try not to use nested functions as much you can to make your code simple in pythonic view.
 
