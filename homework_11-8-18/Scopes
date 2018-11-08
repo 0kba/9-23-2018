@@ -21,13 +21,13 @@ F:-  Factory functions means returning a nested function inside the main functio
      it will call and return the nested function without calling each one separately.and if you have a parameter for each   
      (main and nested functions) you can call the function like that main_function(parameter for main function)      
       (parameter for nested function). Also you can assign your main function with a specific parameter to a variable or    
-      different variables then use it with different parameters for the nested function.or you can just use lmbda as a    
-      shortcut for this process by removing the nested function and returning lmbda (nested function parameter): here       
+      different variables then use it with different parameters for the nested function.or you can just use lambda as a
+      shortcut for this process by removing the nested function and returning lambda (nested function parameter): here
       write the action you need the nested function to do.
       
 G:-  Try not to use nested functions as much you can to make your code simple in pythonic view.
 
-H:-  When you use lmbda for nested scopes specially if there is loops try to use the default to result the variable to its   
+H:-  When you use lambda for nested scopes specially if there is loops try to use the default to result the variable to its
      current value like (lambda x, v=v : v*x) because if you didn't  V will hold the last value from the last iteration or   
      loop.(very important in future when u use GUI)
 
