@@ -1,4 +1,4 @@
-number = 209
+number = 4
 def decimal_to_binary(number):
     list_of_two_xx_decimal = []
     number_index = make_list_get_index(list_of_two_xx_decimal, number)
