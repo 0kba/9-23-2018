@@ -34,7 +34,7 @@ def create_student_from_line(line):
     return  student
 
 def sorting_by_key(LastName, final):
-    final.sort(key=it(LastName))  # print the whole list of dic(of students) sorted by the key gaven
+    final.sort(key=(LastName))  # print the whole list of dic(of students) sorted by the key gaven
     return final
 
 def main():
