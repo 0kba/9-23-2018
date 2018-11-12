@@ -1,0 +1,6 @@
+FirstName, LastName, DateOfBirth
+Ali,Saleh,2005-5-5
+Manal,Saleh,2004-5-9
+Juha,Abdo,2002-8-1
+Magas,Kisra,1999-7-2
+Lima,Nira, 1999-9-2
