@@ -1,20 +1,31 @@
 A- OOP is optional we don't have to use classes all the time we can 
      get a lot of work done with functions or other tools.
 
-B- to use class you need to prepare in advance that's why if you      work in short time project and you can't affors time then you      don't have to use classes but you might need it in a long term      project specially if you will need to build up on it in the future      like strategic mode.
+B- to use class you need to prepare in advance that's why if you
+   work in short time project and you can't afford time then you
+   don't have to use classes but you might need it in a long term
+   project specially if you will need to build up on it in the future
+   like strategic mode.
 
-C- 1:- classes allows you to have a lot of instance which makes it                 easy if you work on many data common in the way you                      want to save them.
-     2:- you can add to a super class even outside the class using                   subclasses.
-     3:- also you can have functions(methods) inside the class to                    programe the instance as you need.
+C- 1:- classes allows you to have a lot of instance which makes it
+        easy if you work on many data common in the way you
+        want to save them.
+     2:- you can add to a super class even outside the class using
+         subclasses.
+     3:- also you can have functions(methods) inside the class to
+         Program the instance as you need.
 
-D- class tree attribute search start from the bottom left going to the      top right super class and stops once it find the attribute.
+D- class tree attribute search start from the bottom left going to the
+   top right super class and stops once it find the attribute.
 
-E- the deffrient between classe and instances that classes are the          factory but instances are the products.
+E- the different between class and instances that classes are the
+   factory but instances are the products.
 
-F- if you have a super class for students and you are creating a      method that works for all of them except science students so you      can simply creat a subclass for them and have your method.
+F- if you have a super class for students and you are creating 
+   a method that works for all of them except science students so you
+   can simply create a subclass for them and have your method.
 
-G- when we get used to oop we will reuse a lot of our codes we      could even get codes from other people (framworks) they mostly      super classes that matches popular needs then we can add      supclasses and methods to it to work for us.
-
-
-inside.
-
+G- when we get used to oop we will reuse a lot of our codes we
+   could even get codes from other people (frameworks) they mostly
+   super classes that matches popular needs then we can add
+   supclasses and methods to it to work for us.
