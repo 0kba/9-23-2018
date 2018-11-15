@@ -18,10 +18,10 @@ C- 1:- classes allows you to have a lot of instance which makes it
 D- class tree attribute search start from the bottom left going to the
    top right super class and stops once it find the attribute.
 
-E- the different between class and instances that classes are the
+E- the deference between class and instances that classes are the
    factory but instances are the products.
 
-F- if you have a super class for students and you are creating 
+F- if you have a super class of students and you are creating 
    a method that works for all of them except science students so you
    can simply create a subclass for them and have your method.
 
