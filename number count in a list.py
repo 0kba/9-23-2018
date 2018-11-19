@@ -18,7 +18,7 @@ for num in numbers:
 print (f"number 4 appeared {count2} times.")
 
 
-result______________________________________________________________
-number 2 appeared 4 times.
-number 3 appeared 2 times.
-number 4 appeared 4 times.
+# result______________________________________________________________
+# number 2 appeared 4 times.
+# number 3 appeared 2 times.
+# number 4 appeared 4 times.

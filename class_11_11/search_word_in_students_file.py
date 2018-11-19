@@ -33,9 +33,26 @@ def create_student_from_line(line):
     student = Student(tokens[0], tokens[1], tokens[2])
     return  student
 
-def sorting_by_key(LastName, final):
-    final.sort(key=(LastName))  # print the whole list of dic(of students) sorted by the key gaven
+def sorting_by_key(lastName, final):
+    final.sort(key=(lastName))  # print the whole list of dic(of students) sorted by the key gaven
     return final
+
+
+def search_name(students):
+    search = input("please write a name to search for.").lower()
+    if search == "quit":
+        return
+    result = []
+    for student in students:
+        if search in student.firstname or search in student.lastname :
+            result.append(student.print())
+    if result == []:
+        print(f"{search} not found please try again or type quit")
+        return search_name(students)
+    else:
+        print(result)
+        return search_name(students)
+
 
 def main():
     if len(sys.argv) < 3:
@@ -48,6 +65,7 @@ def main():
         students.sort(key=attrgetter(sorting_key))
         for student in students:
             student.print()
+        search_name(students)
         return
 
     except KeyError:
