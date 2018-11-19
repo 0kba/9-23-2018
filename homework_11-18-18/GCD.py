@@ -1,7 +1,7 @@
 import sys
 
 def GCD(first_number, second_number):
-    if first_number >= second_number :
+    if first_number >= second_number  :
         return GCD_algorithm(first_number, second_number)
     elif second_number > first_number :                                      # if number2 greater than number1
         return GCD_algorithm(second_number, first_number)                     # switch positions in the algorithm
@@ -12,6 +12,8 @@ def GCD_algorithm(first_number, second_number):
         remainder = first_number % second_number
         first_number = second_number
         second_number = remainder
+    if first_number== 0:
+        return print("you can't have both of numbers 0")
     return first_number
 
 def main():
