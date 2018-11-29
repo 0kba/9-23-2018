@@ -7,6 +7,7 @@ class Product:
         self.Category = Category
         self.Price = Price
 
+
     def __repr__(self):
         return (f"{self.ProductId} {self.ProductName} {self.Category} {self.Price}")
 
@@ -18,9 +19,10 @@ class Order:
         self.Quantity = Quantity
         self.ProductId = ProductId
 
+
     def __parse_date__(self,OrderDate):
         token = OrderDate.split("-")
-        return datetime.date(int(token[0]), int(token[1]), int(token[2]))
+        return datetime.datetime(int(token[0]), int(token[1]), int(token[2]))
 
     def __repr__(self):
         return (f"{self.OrderId} {self.OrderDate} {self.Quantity} {self.ProductId}")
@@ -71,7 +73,7 @@ def list_orders_using_ProudctId(dictionary,ProductId):
 
 def search_by_name(products_list,searching_name):
     for product in products_list:
-        if searching_name in product:
+        if searching_name == product.ProductName:
             return product
 
 def list_by_catagory(products_list):
@@ -104,18 +106,18 @@ def dictionary_values_to_list(orders_dictionary):
     values = []
     for key in orders_dictionary.keys():
         values.append(orders_dictionary[key])
-    orders = combine_list_of_lists(list)
+    orders = combine_list_of_lists(values)
     return orders
 
 def orders_between_2dates(orders_dictionary,date1,date2):
     result = []
     orders = dictionary_values_to_list(orders_dictionary)
-    if datetime.date(date1) < datetime.date(date2):
+    if date1 < date2:
         temp = date1
         date1 = date2
         date2 = temp
     for order in orders:
-        if datetime.date(date1) >= order.OrderDate >= datetime.date(date2):
+        if date1 >= order.OrderDate >= date2:
             result.append(order)
     return result
 
@@ -134,11 +136,12 @@ def options_output (first_file,second_file,option):
         return (search_by_name(products_list, searching_name))
 
     elif option == '4':
-        dates = input(print("please write to dates in numbers in this format year,month,day year,month,day"))
-        dates = dates.split(" ")
-        date1 = dates[0]
-        date2 = dates[1]
-        return (orders_between_2dates(orders_dictionary, date1, date2))
+        date1 = input(datetime.date )
+        date1 = datetime.datetime.strptime(date1,'%Y,%M,%d')
+        date2 = input(datetime.date)
+        date2 = datetime.datetime.strptime(date2, '%Y,%M,%d')
+
+        return (orders_between_2dates(orders_dictionary,date1,date2))
 
 def __main__():
     if len(sys.argv) < 3:
@@ -173,10 +176,5 @@ def __main__():
         return
 
 
-
-
-
-# print(parsing_to_list("product.txt"))
-# print(parsing_to_dictionary("order.txt"))
 
 __main__()
