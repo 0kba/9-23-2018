@@ -18,27 +18,26 @@ class Order:
         self.Quantity = Quantity
         self.ProductId = ProductId
 
-    def __parse_date__(self,OrderDate):
-        token = OrderDate.split("-")
-        return datetime.datetime.strptime( f'{token[0]}-{token[1]}-{token[2]}','%Y-%m-%d').date()
-
     def __repr__(self):
         return (f"{self.OrderId} {self.OrderDate} {self.Quantity} {self.ProductId}")
 
+    def __parse_date__(self,OrderDate):
+        token = OrderDate.split("-")
+        return datetime.datetime.strptime( f'{token[0]}-{token[1]}-{token[2]}','%Y-%m-%d').date()
 
 def open_file_and_skip_header(file_name):
     opened_file = open(file_name,"r")
     opened_file.readline()
     return opened_file
 
-def read_contents_to_list(file_name):
+def read_contents(file_name):
     opened_file = open_file_and_skip_header(file_name)
     file_contents= opened_file.read().splitlines()
     opened_file.close()
     return file_contents
 
 def parsing_to_list(products_file):                               # saving items for the products file
-    file = read_contents_to_list(products_file)                   # in a list by parsing it with the class
+    file = read_contents(products_file)                   # in a list by parsing it with the class
     products_list = []
     for line in file:
         items = line.split(",")
@@ -46,7 +45,7 @@ def parsing_to_list(products_file):                               # saving items
     return products_list
 
 def parsing_to_dictionary(orders_file):                         # saving items for the orders file in a dictionary
-    file = read_contents_to_list(orders_file)                   # by parsing it with a class using ProductId as a key
+    file = read_contents(orders_file)                   # by parsing it with a class using ProductId as a key
     orders_dictionary = {}
     for line in file:
         items = line.split(",")
@@ -65,7 +64,7 @@ def list_by_catagory(products_list):                                      # opti
             catagory_dictionary[product.Category].append([product])      # saving all products related to the same
     return catagory_dictionary                                           # catagory in one value
 
-def list_orders_using_ProudctId(orders_dictionary, ProductId):                   # option number two
+def list_orders_by_ProudctId(orders_dictionary, ProductId):                   # option number two
     for key in orders_dictionary:
         if key == ProductId:                                             # using the key we saved before in
             return orders_dictionary[key]                                       # parsing_to_dictionary function
@@ -81,11 +80,11 @@ def search_by_name(products_list,searching_name):                        # optio
 
 # next 3 functions to handle option 4 (search orders between two dates)
 def parsing_orders_to_list(orders_file):                        # saving all orders in on list
-    file = read_contents_to_list(orders_file)
+    file = read_contents(orders_file)
     orders_list = []
     for line in file:
         items = line.split(",")
-        orders_list.append(Order(items[0],items[1],items[2],items[3]))
+        orders_list.append(Order(items[0],items[1],items[2],items[3])) # parsing it with a class so we can compare it
     return orders_list
 
 def import_2dates_from_user(orders_file):                      # taking the two dates from the user
@@ -96,11 +95,11 @@ def import_2dates_from_user(orders_file):                      # taking the two 
         print("please enter the second date in this format Y-M-D then press Enter")  #  the dates in the file
         date2 = input(datetime.datetime)
         date2 = datetime.datetime.strptime(date2, '%Y-%m-%d').date()
-        return (orders_between_2dates(orders_file, date1, date2))
+        return (search_orders_between_2dates(orders_file, date1, date2))
     except ValueError:
         print("one or both of your dates not valid please try again",file=sys.stderr)
 
-def orders_between_2dates(orders_file, date1, date2):         # searching and comparing the dates
+def search_orders_between_2dates(orders_file, date1, date2):         # searching and comparing the dates
     result = []
     orders = parsing_orders_to_list(orders_file)
     if date1 < date2:
@@ -122,7 +121,7 @@ def options_output (products_file, orders_file, option):    # this function to h
        return (list_by_catagory(products_list))
     elif option == '2':
         ProductId = input(print("please enter the ProductId"))
-        return (list_orders_using_ProudctId(orders_dictionary, ProductId))
+        return (list_orders_by_ProudctId(orders_dictionary, ProductId))
     elif option == '3':
         searching_name = input(print("please enter the name of the product you want to search for"))
         return (search_by_name(products_list, searching_name))
@@ -137,7 +136,8 @@ def empty_file_handling (products_file, orders_file):        # this one to infor
 
 def __main__():
     if len(sys.argv) != 3:
-        print("Please write two valid files names separated by spaces then you will be asked for options")
+        print("""   Please write products file name then orders file name
+separated by spaces then you will be asked for options""")
         return
     try:
         products_file = sys.argv[1]
@@ -169,3 +169,4 @@ def __main__():
 
 
 __main__()
+
