@@ -1,0 +1,3 @@
+ProductId, ProductName, Category, Price
+1,Programming in Python, Books, 50.00
+2,iPad, Electronics, 900.00
