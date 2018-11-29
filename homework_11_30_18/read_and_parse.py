@@ -6,13 +6,13 @@ class Product:
         self.Price = Price
 
     def print_whole (self):
-        return (f"{self.ProductId} {self.ProductName} {self.Category} {self.Price}")
+        print (f"{self.ProductId} {self.ProductName} {self.Category} {self.Price}")
 
 
 class Order:
     def __init__(self, OrderId, OrderDate, Quantity, ProductId):
         self.OrderId = OrderId
-        self.OrderDate = OrderDate.__parse_date__(OrderDate)
+        self.OrderDate = self.__parse_date__(OrderDate)
         self.Quantity = Quantity
         self.ProductId = ProductId
 
@@ -43,16 +43,20 @@ def parsing_to_list(file_name):
 
     for line in file:
         items = line.split(",")
-        products_list.append(Product(items[0],items[1],items[2],items[3]))
+        products_list.append(Product(items[0],items[1],items[2],items[3]).print_whole())
     return products_list
 
 def parsing_to_dic(file_name):
     file = read_contents_to_list(file_name)
-    orders_dictionary = {1:0,2:0,3:0}
+    orders_dictionary = {}
     for line in file:
         items = line.split(",")
-        orders_dictionary.append(Order(items[0],items[1],items[2],items[3]))
+        if items[3] not in orders_dictionary:
+          orders_dictionary[items[3]] = [Order(items[0],items[1],items[2],items[3]).print_whole()]
+        else:
+            orders_dictionary[items[3]].append([Order(items[0],items[1],items[2],items[3]).print_whole()])
+    return orders_dictionary
 
 
-print(read_contents_to_list("product.txt"))
-print(read_contents_to_list("order.txt"))
+print(parsing_to_list("product.txt"))
+print(parsing_to_dic("order.txt"))
