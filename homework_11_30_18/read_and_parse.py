@@ -35,7 +35,7 @@ def open_file_and_skip_header(file_name):
 
 def read_contents_to_list(file_name):
     opened_file = open_file_and_skip_header(file_name)
-    file_contents= opened_file.readlines()
+    file_contents= opened_file.read().splitlines()
     opened_file.close()
     return file_contents
 
@@ -160,11 +160,14 @@ def __main__():
             2 - to list all orders for a given product (your program should then ask for the product id) 
             3 - to search products by name 
             4 - to see orders between a specific date range."""""))
-            print(options_output(first_file, second_file, option))
-        else:
+            if '4' >= option >= '1':
+                print(options_output(first_file, second_file, option))
+            elif option != '0':
+                print("that isn't a valid entry please try again")
+
+        if option == '0':
             print("bye bye")
             return
-
 
 
 
@@ -174,6 +177,8 @@ def __main__():
     except FileNotFoundError:
         print(f"one or both of your files doesn't exist", file=sys.stderr)
         return
+
+
 
 
 
