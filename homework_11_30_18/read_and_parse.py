@@ -119,6 +119,27 @@ def orders_between_2dates(orders_dictionary,date1,date2):
             result.append(order)
     return result
 
+def options_output (first_file,second_file,option):
+    products_list = parsing_to_list(first_file)
+    orders_dictionary = parsing_to_dictionary(second_file)
+    if option == '1':
+       return (list_by_catagory(products_list))
+
+    elif option == '2':
+        ProductId = input(print("please enter the ProductId"))
+        return (list_orders_using_ProudctId(orders_dictionary, ProductId))
+
+    elif option == '3':
+        searching_name = input(print("please enter the name of the product you want to search for"))
+        return (search_by_name(products_list, searching_name))
+
+    elif option == '4':
+        dates = input(print("please write to dates in numbers in this format year,month,day year,month,day"))
+        dates = dates.split(" ")
+        date1 = dates[0]
+        date2 = dates[1]
+        return (orders_between_2dates(orders_dictionary, date1, date2))
+
 def __main__():
     if len(sys.argv) < 3:
         print("Please write two valid files names separated by space then you will get options")
@@ -127,34 +148,20 @@ def __main__():
     try:
         first_file = sys.argv[1]
         second_file = sys.argv[2]
+        option = None
 
-        print(parsing_to_list(first_file))
-        print(parsing_to_dictionary(second_file))
-        option = input(print(f"""please Enter: 
-0 - to quit
-1 - to list all products grouped by categories
-2 - to list all orders for a given product (your program should then ask for the product id) 
-3 - to search products by name 
-4 - to see orders between a specific date range."""""))
-        products_list = parsing_to_list(first_file)
-        orders_dictionary = parsing_to_dictionary(second_file)
-        if option == '0':
+        while option != '0':
+            option = input(print(f"""please Enter: 
+            0 - to quit
+            1 - to list all products grouped by categories
+            2 - to list all orders for a given product (your program should then ask for the product id) 
+            3 - to search products by name 
+            4 - to see orders between a specific date range."""""))
+            print(options_output(first_file, second_file, option))
+        else:
             print("bye bye")
             return
-        elif option == '1':
-            print( list_by_catagory(products_list) )
-        elif option == '2':
-            ProductId = input(print("please enter the ProductId"))
-            print(list_orders_using_ProudctId(orders_dictionary,ProductId))
-        elif option == '3':
-            searching_name = input(print("please enter the name of the product you want to search for"))
-            print(search_by_name(products_list, searching_name))
-        elif option == '4':
-            dates = input(print("please write to dates in numbers in this format year,month,day year,month,day"))
-            dates = dates.split(" ")
-            date1 = dates[0]
-            date2 = dates[1]
-            print(orders_between_2dates(orders_dictionary,date1,date2))
+
 
 
 
