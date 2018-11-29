@@ -37,73 +37,72 @@ def read_contents_to_list(file_name):
     opened_file.close()
     return file_contents
 
-def parsing_to_list(file_name):
-    file = read_contents_to_list(file_name)
+def parsing_to_list(products_file):                               # saving items for the products file
+    file = read_contents_to_list(products_file)                   # in a list by parsing it with the class
     products_list = []
     for line in file:
         items = line.split(",")
         products_list.append(Product(items[0],items[1],items[2],items[3]))
     return products_list
 
-def parsing_to_dictionary(file_name):
-    file = read_contents_to_list(file_name)
+def parsing_to_dictionary(orders_file):                         # saving items for the orders file in a dictionary
+    file = read_contents_to_list(orders_file)                   # by parsing it with a class using ProductId as a key
     orders_dictionary = {}
     for line in file:
         items = line.split(",")
         if items[3] not in orders_dictionary:
           orders_dictionary[items[3]] = [Order(items[0],items[1],items[2],items[3])]
         else:
-            orders_dictionary[items[3]].append([Order(items[0],items[1],items[2],items[3])])
-    return orders_dictionary
+            orders_dictionary[items[3]].append([Order(items[0],items[1],items[2],items[3])])    # saving all orders
+    return orders_dictionary                                                           # related to product in one value
 
-def list_orders_using_ProudctId(dictionary,ProductId):
-    for key in dictionary:
-        if key == ProductId:
-            return dictionary[key]
-        else:
-            return "not found please try again"
-
-def search_by_name(products_list,searching_name):
-    for product in products_list:
-        if searching_name.lower() == product.ProductName.lower():
-            return product
-        else:
-            return "not found please try again"
-
-def list_by_catagory(products_list):
+def list_by_catagory(products_list):                                      # option number one using dictionarry
     catagory_dictionary = {}
     for product in products_list:
         if product.Category not in catagory_dictionary:
             catagory_dictionary[product.Category] = [product]
         else:
-            catagory_dictionary[product.Category].append([product])
-    return catagory_dictionary
+            catagory_dictionary[product.Category].append([product])      # saving all products related to the same
+    return catagory_dictionary                                           # catagory in one value
 
-def combine_list_of_lists (main_list):
-    result_list = []
-    for item in main_list:
-        if type(result_list) == type(item):
-            peel_list_layer(result_list, item, main_list)
-        else: result_list.append(item)
-    return result_list
+def list_orders_using_ProudctId(orders_dictionary, ProductId):                   # option number two
+    for key in orders_dictionary:
+        if key == ProductId:                                             # using the key we saved before in
+            return orders_dictionary[key]                                       # parsing_to_dictionary function
+    else:
+        return "not found please try again"
 
-def peel_list_layer(result_list, item, main_list):
-    for list in item:
-        if type(result_list) == type(list):
-            main_list.append(list)
-        else:
-            result_list.append(list)
+def search_by_name(products_list,searching_name):                        # option number three
+    for product in products_list:
+        if searching_name.lower() == product.ProductName.lower():
+            return product
+    else:
+        return "not found please try again"
 
-def dictionary_values_to_list(orders_dictionary):
-    values = []
-    for key in orders_dictionary.keys():
-        values.append(orders_dictionary[key])
-    orders = combine_list_of_lists(values)
-    return orders
+# next 3 functions to handle option 4 (search orders between two dates)
+def parsing_orders_to_list(orders_file):                        # saving all orders in on list
+    file = read_contents_to_list(orders_file)
+    orders_list = []
+    for line in file:
+        items = line.split(",")
+        orders_list.append(Order(items[0],items[1],items[2],items[3]))
+    return orders_list
 
-def orders_between_2dates(orders_dictionary,date1,date2):
+def import_2dates_from_user(orders_file):                      # taking the two dates from the user
+    try:
+        print("please enter the first date in this format Y-M-D then press Enter")
+        date1 = input(datetime.datetime)
+        date1 = datetime.datetime.strptime(date1, '%Y-%m-%d').date()      # in the same manner we saved
+        print("please enter the second date in this format Y-M-D then press Enter")  #  the dates in the file
+        date2 = input(datetime.datetime)
+        date2 = datetime.datetime.strptime(date2, '%Y-%m-%d').date()
+        return (orders_between_2dates(orders_file, date1, date2))
+    except ValueError:
+        print("one or both of your dates not valid please try again",file=sys.stderr)
+
+def orders_between_2dates(orders_file, date1, date2):         # searching and comparing the dates
     result = []
-    orders = dictionary_values_to_list(orders_dictionary)
+    orders = parsing_orders_to_list(orders_file)
     if date1 < date2:
         temp = date1
         date1 = date2
@@ -114,19 +113,11 @@ def orders_between_2dates(orders_dictionary,date1,date2):
     if result == []:
         return "no orders have been found please try again"
     return result
+# that was the last function to handle option number 4
 
-def import_2dates_from_user(orders_dictionary):
-    print("please enter the first date in this format Y-M-D then press Enter")
-    date1 = input(datetime.datetime)
-    date1 = datetime.datetime.strptime(date1, '%Y-%m-%d').date()
-    print("please enter the second date in this format Y-M-D then press Enter")
-    date2 = input(datetime.datetime)
-    date2 = datetime.datetime.strptime(date2, '%Y-%m-%d').date()
-    return (orders_between_2dates(orders_dictionary, date1, date2))
-
-def options_output (first_file,second_file,option):
-    products_list = parsing_to_list(first_file)
-    orders_dictionary = parsing_to_dictionary(second_file)
+def options_output (products_file, orders_file, option):    # this function to handle all valid option inputs except quiting
+    products_list = parsing_to_list(products_file)
+    orders_dictionary = parsing_to_dictionary(orders_file)
     if option == '1':
        return (list_by_catagory(products_list))
     elif option == '2':
@@ -136,29 +127,37 @@ def options_output (first_file,second_file,option):
         searching_name = input(print("please enter the name of the product you want to search for"))
         return (search_by_name(products_list, searching_name))
     elif option == '4':
-        return import_2dates_from_user(orders_dictionary)
+        return import_2dates_from_user(orders_file)
+
+def empty_file_handling (products_file, orders_file):        # this one to inform the user from the begining that
+    products_list = parsing_to_list(products_file)          # that he provided an empty file
+    orders_dictionary = parsing_to_dictionary(orders_file)
+    if products_list == [] or orders_dictionary == {}:
+        return  True
 
 def __main__():
-    if len(sys.argv) < 3:
-        print("Please write two valid files names separated by space then you will get options")
+    if len(sys.argv) != 3:
+        print("Please write two valid files names separated by spaces then you will be asked for options")
         return
     try:
-        first_file = sys.argv[1]
-        second_file = sys.argv[2]
+        products_file = sys.argv[1]
+        orders_file = sys.argv[2]
+        if empty_file_handling (products_file,orders_file):
+            print( "one or both of your files are empty 0 to quit")
         option = None
         while option != '0':
             option = input(print(f"""please Enter: 
             0 - to quit
             1 - to list all products grouped by categories
-            2 - to list all orders for a given product (your program should then ask for the product id) 
+            2 - to list all orders for a given product Id 
             3 - to search products by name 
             4 - to see orders between a specific date range."""""))
             if '4' >= option >= '1':
-                print(options_output(first_file, second_file, option))
+                print(options_output(products_file, orders_file, option))
             elif option != '0':
                 print("that isn't a valid entry please try again")
         if option == '0':
-            print("bye bye")
+            print("the programme has been closed")
             return
 
     except IndentationError:
