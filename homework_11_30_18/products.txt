@@ -1,3 +1,14 @@
 ProductId, ProductName, Category, Price
 1,Programming in Python, Books, 50.00
-2,iPad, Electronics, 900.00
+2,laptop, Electronics, 1000
+3,watch, Electronics, 60
+4,hat,  Clothes, 20
+5,T-shirt,  Clothes , 40
+6,pants, Clothes, 45
+7,mirror, Furniture, 60
+8,table, Furniture, 80
+9,mic, Electronics, 150
+10,tv, Electronics, 700
+11,wood, Materials, 25
+12,physics, Books, 40
+13,cellphone, Electronics, 750
