@@ -103,7 +103,7 @@ def search_orders_between_2dates(orders_file, date1, date2):         # searching
     result = []
     orders = parsing_orders_to_list(orders_file)
     if date1 < date2:
-        temp = date1
+        temp = date1                                                 # just in case user entered the older date first
         date1 = date2
         date2 = temp
     for order in orders:
@@ -117,15 +117,19 @@ def search_orders_between_2dates(orders_file, date1, date2):         # searching
 def options_output (products_file, orders_file, option):    # this function to handle all valid option inputs except quiting
     products_list = parsing_to_list(products_file)
     orders_dictionary = parsing_to_dictionary(orders_file)
-    if option == '1':
+    option_catagory = '1'
+    option_productId = '2'
+    option_name_search = '3'
+    option_date_search = '4'
+    if option == option_catagory:
        return (list_by_catagory(products_list))
-    elif option == '2':
+    elif option == option_productId:
         ProductId = input(print("please enter the ProductId"))
         return (list_orders_by_ProudctId(orders_dictionary, ProductId))
-    elif option == '3':
+    elif option == option_name_search:
         searching_name = input(print("please enter the name of the product you want to search for"))
         return (search_by_name(products_list, searching_name))
-    elif option == '4':
+    elif option == option_date_search:
         return import_2dates_from_user(orders_file)
 
 def empty_file_handling (products_file, orders_file):        # this one to inform the user from the begining that
