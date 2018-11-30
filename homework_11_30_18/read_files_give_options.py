@@ -164,9 +164,6 @@ separated by spaces then you will be asked for options""")
             print("the programme has been closed")
             return
 
-    except IndentationError:
-        print(f"{sys.argv} is not a valid entry", file=sys.stderr)
-        return
     except FileNotFoundError:
         print(f"one or both of your files doesn't exist", file=sys.stderr)
         return
