@@ -41,7 +41,7 @@ def parsing_to_list(products_file):                               # saving items
     products_list = []
     for line in file:
         items = line.split(",")
-        products_list.append(Product(items[0],items[1],items[2],items[3]))
+        products_list.append(Product(items[0], items[1], items[2], items[3]))
     return products_list
 
 def parsing_to_dictionary(orders_file):                         # saving items for the orders file in a dictionary
@@ -50,9 +50,9 @@ def parsing_to_dictionary(orders_file):                         # saving items f
     for line in file:
         items = line.split(",")
         if items[3] not in orders_dictionary:
-          orders_dictionary[items[3]] = [Order(items[0],items[1],items[2],items[3])]
+          orders_dictionary[items[3]] = [Order(items[0], items[1], items[2], items[3])]
         else:
-            orders_dictionary[items[3]].append([Order(items[0],items[1],items[2],items[3])])    # saving all orders
+            orders_dictionary[items[3]].append([Order(items[0], items[1], items[2], items[3])])    # saving all orders
     return orders_dictionary                                                           # related to product in one value
 
 def list_by_catagory(products_list):                                      # option number one using dictionarry
@@ -84,7 +84,7 @@ def parsing_orders_to_list(orders_file):                        # saving all ord
     orders_list = []
     for line in file:
         items = line.split(",")
-        orders_list.append(Order(items[0],items[1],items[2],items[3])) # parsing it with a class so we can compare it
+        orders_list.append(Order(items[0], items[1], items[2], items[3])) # parsing it with a class so we can compare it
     return orders_list
 
 def import_2dates_from_user(orders_file):                      # taking the two dates from the user
