@@ -150,12 +150,13 @@ separated by spaces then you will be asked for options""")
             print( "one or both of your files are empty 0 to quit")
         option = None
         while option != '0':
-            option = input(print(f"""please Enter: 
+            print(f"""please Enter:
             0 - to quit
             1 - to list all products grouped by categories
-            2 - to list all orders for a given product Id 
-            3 - to search products by name 
-            4 - to see orders between a specific date range."""""))
+            2 - to list all orders for a given product Id
+            3 - to search products by name
+            4 - to see orders between a specific date range.""""")
+            option = input()
             if '4' >= option >= '1':
                 print(options_output(products_file, orders_file, option))
             elif option != '0':
